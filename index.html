@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+    content="IE=edge">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="A simple web page building and editing tool, built on only Vanilla tech with best practice in mind.">
+  <title>Page Builder</title>
+
+  <link rel="stylesheet"
+    href="./styles/styles.css">
+  <link rel="stylesheet"
+    href="./styles/editMenu.css">
+  <link rel="stylesheet"
+    href="./styles/modals.css">
+
+  <script defer
+    type="module"
+    src="./scripts/scripts.js"></script>
+  <script defer
+    type="module"
+    src="./scripts/editMenu.js"></script>
+  <!-- <script defer type="module" src="./scripts/editOptions.js"></script> -->
+  <script defer
+    src="https://kit.fontawesome.com/8aee17fde0.js"></script>
+</head>
+
+<body>
+  <!-- START OF EDIT MENU -->
+  <nav id="navbar">
+    <button class="nav-button"
+      add-element
+      aria-label="Add Element">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+    <button class="nav-button"
+      add-section
+      aria-label="Edit Element">
+      <i class="fa-solid fa-file-circle-plus"></i>
+    </button>
+    <button class="nav-button"
+      delete-element
+      aria-label="edit color">
+      <i class="fa-solid fa-delete-left"></i>
+    </button>
+    <button class="nav-button"
+      color-button
+      aria-label="edit color">
+      <i class="fa-solid fa-code"></i>
+    </button>
+    <button class="nav-button"
+      color-button
+      aria-label="edit color">
+      <i class="fa-solid fa-laptop-code"></i>
+    </button>
+    <button class="nav-button"
+      color-button
+      aria-label="edit color">
+      <i class="fa-solid fa-comment-dots"></i>
+    </button>
+    <button class="nav-button"
+      color-button
+      aria-label="edit color">
+      <i class="fa-solid fa-envelope"></i>
+    </button>
+    <button class="nav-button"
+      color-button
+      aria-label="edit color">
+      <i class="fa-solid fa-gear"></i>
+    </button>
+    <button class="nav-button"
+      color-button
+      aria-label="edit color">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </nav>
+  <!-- END OF EDIT MENU -->
+  <!-- BUILT WEBSITE GOES HERE -->
+  <website></website>
+
+  <div id="addElementModal" class="modal">
+    <h2>Create an element</h2>
+    <select name="elementType" id="elementType" elementTypeSelector>
+      <option disabled selected>Select an element</option>
+    </select>
+    <select name="typeVariant" id="typeVariant" typeVariantSelector></select>
+    <div variantOptions></div>
+    <button createElementBtn>Create!</button>
+  </div>
+  <div id="addSectionModal" class="modal">
+    <h2>Create a section</h2>
+    <!-- <input type="number" min="1" value="1" sectionRows> -->
+    <input type="number" min="1" value="1" sectionCols>
+    <select sectionDirection>
+      <option value="row">Row</option>
+      <option value="column">Column</option>
+    </select>
+    <button sectionSubmit>Create Section</button>
+  </div>
+</body>
+
+</html>
