@@ -210,6 +210,7 @@ function downloadObjectAsJson(exportObj, exportName){
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
+    window.open("https://dynamic-site-loader.netlify.app/", "_blank");
   }
 
 dlBtn.addEventListener("click", e => {
