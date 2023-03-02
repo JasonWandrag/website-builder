@@ -2,7 +2,6 @@ const waitForMs = (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
-// Not used anymore
 const isFoundObj = (obj, val) => {
     if (obj.componentID == val) {
         return obj
@@ -18,5 +17,6 @@ const toggleModal = (modalID) => {
 }
 export {
     waitForMs,
-    toggleModal
+    toggleModal,
+    isFoundObj
 }

@@ -6,6 +6,7 @@ const nav = document.querySelector("#navbar");
 const navButtons = document.querySelectorAll(".nav-button");
 const addEl = document.querySelector('[add-element]')
 const delEl = document.querySelector('[delete-element]')
+const dlBtn = document.querySelector('[download-website]')
 const elementTypeSelector = document.querySelector('[elementTypeSelector]')
 const typeVariantSelector = document.querySelector('[typeVariantSelector]')
 const sectionCols = document.querySelector('[sectionCols]')
@@ -199,4 +200,18 @@ sectionSubmit.addEventListener("click", () => {
 
 delEl.addEventListener("click", e => {
     document.querySelector(`[componentID='${selectedID}']`).remove()
+})
+
+function downloadObjectAsJson(exportObj, exportName){
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href",     dataStr);
+    downloadAnchorNode.setAttribute("download", exportName + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+  }
+
+dlBtn.addEventListener("click", e => {
+    downloadObjectAsJson(app, "markdown")
 })

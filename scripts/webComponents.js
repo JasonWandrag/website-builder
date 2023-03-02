@@ -9,6 +9,7 @@ const sections = [
     "about",
     "projects",
     "testimonials",
+    "skills",
     "contact"
 ];
 // UI Components
@@ -246,9 +247,24 @@ const generateSection = sectionMarkdown => {
         attributes: [createAttribute("style", `width: 100%; text-align: center; display: flex; flex-direction: ${sectionMarkdown.direction}; gap: 10px; justify-content: space-between`)]
     })
 }
+
+const createMarkdownForElement = (tagName, element) => {
+    if(tagName === 'img') return createImageMarkdown(element)
+}
+const createImageMarkdown = element => {
+    return createElement("img", {
+        attributes: [
+            createAttribute("alt", element.alt),
+            createAttribute("src", element.src),
+            createAttribute("style", element.attributes.style.value)
+        ]
+    })
+}
+
 export {
     app,
     generateUI,
-    generateSection
+    generateSection,
+    createMarkdownForElement
 }
 
