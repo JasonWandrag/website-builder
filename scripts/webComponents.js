@@ -11,7 +11,7 @@ const sections = [
 // UI Components
 const navbar = createElement("nav", {
   children: [
-    createElement("h1", { children: [createText("Jason")] }),
+    createElement("h1", { children: [createText("Lorem Ipsum Company")] }),
     createElement("ul", {
       children: sections.map((section) =>
         createElement("li", {
