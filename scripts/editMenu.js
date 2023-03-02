@@ -15,7 +15,7 @@ const sectionSubmit = document.querySelector('[sectionSubmit]')
 const variantOptions = document.querySelector('[variantOptions]')
 const createElementBtn = document.querySelector('[createElementBtn]')
 const addSection = document.querySelector('[add-section]')
-const touchduration = 200;
+const touchDuration = 200;
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
 );
@@ -123,7 +123,7 @@ const toggleNav = async (e) => {
     nav.style.left = `${menuVisible ? x : "-300"}px`;
     nav.style.top = `${y}px`;
 };
-const onlongtouch = (e) => {
+const onLongTouch = (e) => {
     toggleNavMobile(e);
     if (!menuVisible) clearTimeout(timer);
 };
@@ -134,7 +134,7 @@ window.oncontextmenu = (e) => {
 };
 document.querySelector("body").addEventListener("touchstart", (e) => {
     if (!timer) {
-        timer = setTimeout(onlongtouch(e), touchduration);
+        timer = setTimeout(onLongTouch(e), touchDuration);
     }
 });
 document.querySelector("body").addEventListener("touchend", (e) => {
