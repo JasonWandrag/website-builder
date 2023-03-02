@@ -3,22 +3,29 @@ import { isFoundObj } from "./helpers.js";
 import { createMarkdownForElement } from "./webComponents.js";
 
 const mutationObserver = new MutationObserver((entries) => {
-  // For every change in the DOM, I need to update the 'app' object
-  console.log(entries);
+  console.log("🚀 ~ file: observeDOM.js:6 ~ mutationObserver ~ entries[0]:", entries[0])
   const { type, target, addedNodes, removedNodes } = entries[0];
-  // console.log(type);
-  if(type === "childList") {
-    // console.log(target.getAttribute("componentid"))
-    const componentID = target.getAttribute("componentid")
-    const parentObj = isFoundObj(app, componentID)
-    console.log("🚀 ~ file: observeDOM.js:14 ~ mutationObserver ~ parentObj:", parentObj)
-    // console.log({addedNodes, removedNodes})
-    if(addedNodes.length){
-      const refElement = addedNodes[0]
-      const newElement = createMarkdownForElement(refElement.tagName.toLowerCase(), refElement)
-      parentObj.children = [...parentObj.children, newElement]
+  if (type === "childList") {
+    const componentID = target.getAttribute("componentID");
+    const parentObj = isFoundObj(app, componentID);
+    if (addedNodes.length) {
+      const refElement = addedNodes[0];
+      const newElement = createMarkdownForElement(
+        refElement.tagName.toLowerCase(),
+        refElement
+      );
+      if(parentObj?.children){
+        parentObj.children = [...parentObj.children, newElement];
+      } else {
+        Object.assign(parentObj, {children: [newElement]});
+      }
     }
-    console.log("🚀 ~ file: observeDOM.js:13 ~ mutationObserver ~ parentObj:", parentObj)
+    if (removedNodes.length) {
+      parentObj.children = parentObj.children.filter(
+        (child) =>
+          child.componentID != removedNodes[0].getAttribute("componentID")
+      );
+    }
   }
 });
 const config = {

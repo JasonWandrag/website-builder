@@ -5,7 +5,7 @@ function* infinite() {
     }
 }
 const generator = infinite(); // "Generator { }"
-const createElement = (tagName, options) => { return { contentType: "element", tagName, ...options, componentID: generator.next().value } }
+const createElement = (tagName, options) => { return { contentType: "element", tagName, ...options, componentID: options?.attributes?.find(attribute => attribute.attributeName === "componentid")?.attributeValue || generator.next().value } }
 const createText = (tagText) => { return { contentType: "text", tagText } }
 const createAttribute = (attributeName, attributeValue = true) => { return { attributeName, attributeValue } }
 const buildElement = ({ tagName, children, attributes, componentID }, parentElement) => {
