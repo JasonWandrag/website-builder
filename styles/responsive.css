@@ -1,0 +1,13 @@
+website{
+    display: block;
+    margin-inline: auto;
+}
+website.desktop{
+    max-width: 100vw;
+}
+website.tablet{
+    max-width: 756px;
+}
+website.mobile{
+    max-width: 360px;
+}

@@ -4,17 +4,24 @@ import { buildUI } from './markupHandler.js';
 
 const nav = document.querySelector("#navbar");
 const navButtons = document.querySelectorAll(".nav-button");
+
 const addEl = document.querySelector('[add-element]')
-const delEl = document.querySelector('[delete-element]')
-const dlBtn = document.querySelector('[download-website]')
 const elementTypeSelector = document.querySelector('[elementTypeSelector]')
 const typeVariantSelector = document.querySelector('[typeVariantSelector]')
+const variantOptions = document.querySelector('[variantOptions]')
+const createElementBtn = document.querySelector('[createElementBtn]')
+
+const toggleScreenSizeBtn = document.querySelector('[mobile-responsive]')
+
+const delEl = document.querySelector('[delete-element]')
+const dlBtn = document.querySelector('[download-website]')
+const settingsBtn = document.querySelector('[site-settings]')
+
 const sectionCols = document.querySelector('[sectionCols]')
 const sectionDirection = document.querySelector('[sectionDirection]')
 const sectionSubmit = document.querySelector('[sectionSubmit]')
-const variantOptions = document.querySelector('[variantOptions]')
-const createElementBtn = document.querySelector('[createElementBtn]')
 const addSection = document.querySelector('[add-section]')
+// Added these to variables file
 const touchDuration = 200;
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
@@ -107,7 +114,6 @@ const elementTypes = {
         }
     }
 }
-
 let menuVisible;
 let timer;
 let selectedID = null
@@ -151,6 +157,17 @@ document.querySelectorAll(".nav-button").forEach((btn) => {
 // Adding an element
 addEl.addEventListener("click", () => {
     toggleModal("addElementModal")
+})
+settingsBtn.addEventListener("click", () => {
+    toggleModal("siteSettingsModal")
+})
+const screenSizes = ['desktop', "tablet", "mobile"]
+let screenSizeIndex = 0
+toggleScreenSizeBtn.addEventListener("click", () => {
+    const appContainer = document.querySelector("website")
+    screenSizeIndex++;
+    if (screenSizeIndex === screenSizes.length) screenSizeIndex = 0
+    appContainer.classList = screenSizes[screenSizeIndex]
 })
 // Create initial Select
 for (let elements in elementTypes) {

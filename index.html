@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./styles/styles.css" />
     <link rel="stylesheet" href="./styles/editMenu.css" />
     <link rel="stylesheet" href="./styles/modals.css" />
+    <link rel="stylesheet" href="./styles/responsive.css" />
 
     <script defer type="module" src="./scripts/scripts.js"></script>
     <script defer type="module" src="./scripts/editMenu.js"></script>
@@ -62,8 +63,6 @@
         title="Toggle Screen Size"
       >
         <i class="fa-solid fa-ruler-combined"></i>
-        <!-- <i class="fa-solid fa-photo-film"></i> -->
-        <!-- <i class="fa-solid fa-person-through-window"></i> -->
       </button>
       <button
         class="nav-button"
@@ -116,6 +115,18 @@
         <option value="column">Column</option>
       </select>
       <button sectionSubmit>Create Section</button>
+    </div>
+    <div id="siteSettingsModal" class="modal">
+      <h2>Edit your site settings</h2>
+      <label>Website Title <input type="text" setting-title></label>
+      <!-- <input type="number" min="1" value="1" sectionRows> -->
+      <input type="number" min="1" value="1" sectionCols />
+      <select sectionDirection>
+        <option value="row">Row</option>
+        <option value="column">Column</option>
+      </select>
+      <button sectionSubmit>Create Section</button>
+      <button sectionClose>Close</button>
     </div>
   </body>
 </html>

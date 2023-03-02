@@ -50,7 +50,7 @@ const navbar = createElement("nav", {
     createAttribute(
       "style",
       `
-        position: fixed;
+        position: sticky;
         top: 0;
         left: 0;
         right: 0;
@@ -115,7 +115,7 @@ const footer = createElement("footer", {
     createAttribute(
       "style",
       `
-        position: fixed;
+        position: sticky;
         bottom: 0;
         left: 0;
         right: 0;
