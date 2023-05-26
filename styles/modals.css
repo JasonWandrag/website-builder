@@ -8,7 +8,9 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px
+    gap: 10px;
+    max-height: 60vh;
+    overflow: auto;
 }
 [variantOptions] {
     display: flex;

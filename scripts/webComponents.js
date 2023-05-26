@@ -311,12 +311,12 @@ const generateSection = (sectionMarkdown) => {
 };
 
 const createMarkdownForElement = (tagName, element) => {
-  const children = element.children.length
+  const children = element.children?.length
     ? Array.from(element.children).map((child) =>
         createMarkdownForElement(child.tagName.toLowerCase(), child)
       )
     : [];
-  const attributes = element.attributes.length
+  const attributes = element.attributes?.length
     ? Array.from(element.attributes)
         .map((attribute) => {
           if (attribute.name === "contenteditable") return;

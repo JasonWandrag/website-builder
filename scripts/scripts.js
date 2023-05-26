@@ -1,6 +1,6 @@
 import { buildUI } from "./markupHandler.js";
 import { app } from "./webComponents.js";
-import { observeElementForChanges } from "./observeDOM.js";
+import { syncDOMWithMarkdown } from "./observeDOM.js";
 console.log(app);
 buildUI(app, document.querySelector("website"));
-observeElementForChanges("#app")
+syncDOMWithMarkdown("#app")
