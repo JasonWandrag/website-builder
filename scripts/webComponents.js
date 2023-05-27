@@ -11,7 +11,10 @@ const sections = [
 // UI Components
 const navbar = createElement("nav", {
   children: [
-    createElement("h1", { children: [createText("Lorem Ipsum Company")] }),
+    createElement("h1", {
+      children: [createText("Lorem Ipsum Company")],
+      attributes: [createAttribute("contenteditable")],
+    }),
     createElement("ul", {
       children: sections.map((section) =>
         createElement("li", {
@@ -20,6 +23,7 @@ const navbar = createElement("nav", {
               children: [createText(section)],
               attributes: [
                 createAttribute("href", `#${section}`),
+                createAttribute("contenteditable"),
                 createAttribute(
                   "style",
                   `
@@ -112,6 +116,7 @@ const content = createElement("main", {
 const footer = createElement("footer", {
   children: [createText("Made by Jason")],
   attributes: [
+    createAttribute("contenteditable"),
     createAttribute(
       "style",
       `
@@ -241,7 +246,7 @@ const createTextUI = (elementMarkdown) => {
           createAttribute("href", elementMarkdown.href),
           createAttribute("target", elementMarkdown.target),
           createAttribute("style", `text-align: center; padding: 10px; `),
-          createAttribute("contenteditable")
+          createAttribute("contenteditable"),
         ],
       });
     default:
@@ -249,7 +254,7 @@ const createTextUI = (elementMarkdown) => {
         children: [createText(elementMarkdown.text)],
         attributes: [
           createAttribute("style", `text-align: center; padding: 10px; `),
-          createAttribute("contenteditable")
+          createAttribute("contenteditable"),
         ],
       });
   }
