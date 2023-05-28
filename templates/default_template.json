@@ -162,7 +162,7 @@
                 },
                 {
                     "attributeName": "style",
-                    "attributeValue": "position: sticky; top: 0px; left: 0px; right: 0px; display: flex; justify-content: space-between; align-items: center; background-color: #6495ed; padding: 1rem 3rem; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; color: #f0f0f0;"
+                    "attributeValue": "position: sticky; top: 0px; left: 0px; right: 0px; display: flex; justify-content: space-between; align-items: center; background-color: #6495ed; padding: 1rem 3rem; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; color: #f0f0f0; z-index: 20"
                 }
             ],
             "componentID": 14
